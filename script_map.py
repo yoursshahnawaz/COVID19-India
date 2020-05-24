@@ -6,27 +6,39 @@ import geopy
 import numpy as np
 import pandas as pd
 import json
+import requests
 
 # load geo_json
-# shapefiles can be converted to geojson with QGIS
 with open(r'Data/Indian_States.json') as f:
     geojson_counties = json.load(f)
 
 for i in geojson_counties['features']:
     i['id'] = i['properties']['NAME_1']
-    
-# load data associated with geo_json
-pop_df = pd.read_excel(r'Data/data_excel.xlsx')
-pop_df.head()
+
+# Loading Real-time data via API
+res = requests.get('https://api.covid19india.org/data.json')
+covid_current = res.json()
+df = []
+
+# Filtering only required information
+for j in range(1, 36):
+    df.append([covid_current['statewise'][j]['state'],
+               covid_current['statewise'][j]['confirmed']])
+    df_covid = pd.DataFrame(df, columns=['State', 'Total Case'])
+
+# Converting data to CSV 
+df_covid.to_csv('Data/TotalCase.csv')
+
+# Reading CSV Data
+pop_df = pd.read_csv('Data/TotalCase.csv')
 
 map1 = flm.Map(location=[20.5937,78.9629], zoom_start=4)
 
 flm.Choropleth(
     geo_data=geojson_counties,
-    name='choropleth',
+    name='Total Case',
     data=pop_df,
-    columns=['Name of State / UT', 'Total Confirmed cases'],
-    # see folium.Choropleth? for details on key_on
+    columns=['State', 'Total Case'],
     key_on='feature.id',
     fill_color='YlGn',
     fill_opacity=0.5,
