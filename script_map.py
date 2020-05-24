@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import json
 import requests
+from itertools import chain
 
 # load geo_json
 with open(r'Data/Indian_States.json') as f:
@@ -20,8 +21,11 @@ res = requests.get('https://api.covid19india.org/data.json')
 covid_current = res.json()
 df = []
 
+# To skip few entries (index 0 and index 15)
+concatenated_range = chain(range(1, 11), range(12, 36))
+
 # Filtering only required information
-for j in range(1, 36):
+for j in concatenated_range:
     df.append([covid_current['statewise'][j]['state'],
                covid_current['statewise'][j]['confirmed']])
     df_covid = pd.DataFrame(df, columns=['State', 'Total Case'])
