@@ -1,35 +1,36 @@
 ,State,Total Case
-0,Maharashtra,50231
-1,Tamil Nadu,16277
-2,Gujarat,14063
-3,Delhi,13418
-4,Rajasthan,6894
-5,Madhya Pradesh,6665
-6,Uttar Pradesh,6017
-7,West Bengal,3667
-8,Andhra Pradesh,2780
-9,Bihar,2574
-10,Punjab,2045
-11,Karnataka,2089
-12,Telangana,1854
+0,Andaman and Nicobar Islands,33
+1,Andhra Pradesh,2780
+2,Arunachal Pradesh,2
+3,Assam,393
+4,Bihar,2574
+5,Chandigarh,262
+6,Chhattisgarh,252
+7,Dadra and Nagar Haveli,2
+8,Delhi,13418
+9,Goa,66
+10,Gujarat,14063
+11,Haryana,1184
+12,Himachal Pradesh,203
 13,Jammu and Kashmir,1621
-14,Odisha,1336
-15,Haryana,1184
+14,Jharkhand,370
+15,Karnataka,2089
 16,Kerala,848
-17,Assam,379
-18,Jharkhand,370
-19,Uttarakhand,317
-20,Chandigarh,256
-21,Chhattisgarh,214
-22,Tripura,191
-23,Himachal Pradesh,203
-24,Goa,66
-25,Ladakh,52
-26,Andaman and Nicobar Islands,33
-27,Manipur,32
-28,Puducherry,26
-29,Meghalaya,14
-30,Dadra and Nagar Haveli and Daman and Diu,2
-31,Mizoram,1
-32,Arunachal Pradesh,1
-33,Sikkim,1
+17,Ladakh,52
+18,Madhya Pradesh,6665
+19,Maharashtra,50231
+20,Manipur,32
+21,Meghalaya,14
+22,Mizoram,1
+23,Nagaland,0
+24,Odisha,1336
+25,Puducherry,41
+26,Punjab,2060
+27,Rajasthan,7028
+28,Sikkim,1
+29,Tamil Nadu,16277
+30,Telangana,1854
+31,Tripura,194
+32,Uttar Pradesh,6268
+33,Uttarakhand,317
+34,West Bengal,3667
