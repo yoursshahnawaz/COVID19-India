@@ -27,14 +27,21 @@ concatenated_range = chain(range(1, 11), range(12, 35))
 # Filtering only required information
 for j in concatenated_range:
     df.append([covid_current['statewise'][j]['state'],
-               covid_current['statewise'][j]['confirmed']])
-    df_covid = pd.DataFrame(df, columns=['State', 'Total Case'])
+               covid_current['statewise'][j]['confirmed'],
+               covid_current['statewise'][j]['active'],
+               covid_current['statewise'][j]['deaths'],
+               ])
+    df_covid = pd.DataFrame(df, columns=['State', 'Total Case', 'Active Case', 'Deaths'])
 
 # More filtration to match index of both the files
 df2 = pd.DataFrame({'State':['Mizoram'],
-                  'Total Case':[1]})
+                  'Total Case':[1],
+                  'Active Case':[1],
+                  'Deaths':[0]})
 df3 = pd.DataFrame({'State':['Sikkim'],
-                    'Total Case':[1]})
+                    'Total Case':[1],
+                    'Active Case':[1],
+                  'Deaths':[0]})
 df_covid = pd.concat([df_covid, df2])
 df_covid = pd.concat([df_covid, df3])
 df_covid = df_covid.sort_values('State', axis=0)
@@ -51,6 +58,8 @@ pop_df = pd.read_csv('Data/TotalCase.csv')
 for i in range(35):
     if((geojson_counties['features'][i]['properties']['NAME_1']) == (df_covid['State'][i])):
         geojson_counties['features'][i]['properties']['total_case'] = df_covid['Total Case'][i]
+        geojson_counties['features'][i]['properties']['active_case'] = df_covid['Active Case'][i]
+        geojson_counties['features'][i]['properties']['total_deaths'] = df_covid['Deaths'][i]
 
 # for i in range(33):
 #     if((geojson_counties['features'][i]['properties']['NAME_1']) == (df_covid['State'][i])):
@@ -80,7 +89,7 @@ choropleth = flm.Choropleth(
 # Adding Hover Effect
 style_function = "font-size: 12px; font-weight: bold"
 choropleth.geojson.add_child(
-    flm.features.GeoJsonTooltip(fields=['NAME_1','total_case',], aliases=['State', 'Total Case'], lables=True, sticky=True, toLocaleString=True, style=style_function))
+    flm.features.GeoJsonTooltip(fields=['NAME_1','total_case','active_case','total_deaths',], aliases=['State', 'Total Case', 'Active', 'Deaths'], lables=True, sticky=True, toLocaleString=True, style=style_function))
 
 # layer control to turn choropleth on or off
 flm.LayerControl().add_to(map1)

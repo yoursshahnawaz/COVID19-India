@@ -1,36 +1,36 @@
-,State,Total Case
-0,Andaman and Nicobar Islands,33
-1,Andhra Pradesh,2980
-2,Arunachal Pradesh,2
-3,Assam,549
-4,Bihar,2737
-5,Chandigarh,266
-6,Chhattisgarh,292
-7,Dadra and Nagar Haveli,2
-8,Delhi,14053
-9,Goa,67
-10,Gujarat,14468
-11,Haryana,1213
-12,Himachal Pradesh,223
-13,Jammu and Kashmir,1668
-14,Jharkhand,405
-15,Karnataka,2182
-16,Kerala,897
-17,Ladakh,53
-18,Madhya Pradesh,6859
-19,Maharashtra,52667
-20,Manipur,36
-21,Meghalaya,15
-22,Mizoram,1
-23,Nagaland,3
-24,Odisha,1438
-25,Puducherry,49
-26,Punjab,2081
-27,Rajasthan,7376
-28,Sikkim,1
-29,Tamil Nadu,17082
-30,Telangana,1920
-31,Tripura,198
-32,Uttar Pradesh,6497
-33,Uttarakhand,349
-34,West Bengal,3816
+,State,Total Case,Active Case,Deaths
+0,Andaman and Nicobar Islands,33,0,0
+1,Andhra Pradesh,2983,909,57
+2,Arunachal Pradesh,2,1,0
+3,Assam,549,479,4
+4,Bihar,2737,1991,13
+5,Chandigarh,266,75,4
+6,Chhattisgarh,292,225,0
+7,Dadra and Nagar Haveli,2,1,0
+8,Delhi,14053,7006,276
+9,Goa,67,48,0
+10,Gujarat,14468,6944,888
+11,Haryana,1213,395,16
+12,Himachal Pradesh,223,153,4
+13,Jammu and Kashmir,1668,836,23
+14,Jharkhand,405,253,4
+15,Karnataka,2182,1431,44
+16,Kerala,897,359,6
+17,Ladakh,53,10,0
+18,Madhya Pradesh,6859,2988,300
+19,Maharashtra,52667,35186,1695
+20,Manipur,39,35,0
+21,Meghalaya,15,2,1
+22,Mizoram,1,1,0
+23,Nagaland,3,3,0
+24,Odisha,1438,782,7
+25,Puducherry,49,32,0
+26,Punjab,2081,128,40
+27,Rajasthan,7376,3137,167
+28,Sikkim,1,1,0
+29,Tamil Nadu,17082,8232,119
+30,Telangana,1920,700,56
+31,Tripura,198,33,0
+32,Uttar Pradesh,6497,2668,169
+33,Uttarakhand,349,284,4
+34,West Bengal,3816,2124,278
