@@ -22,7 +22,7 @@ covid_current = res.json()
 df = []
 
 # To skip few entries (index 0 and index 15)
-concatenated_range = chain(range(1, 11), range(12, 35))
+concatenated_range = chain(range(1, 9), range(10, 35))
 
 # Filtering only required information
 for j in concatenated_range:
@@ -44,6 +44,7 @@ df3 = pd.DataFrame({'State':['Sikkim'],
                   'Deaths':[0]})
 df_covid = pd.concat([df_covid, df2])
 df_covid = pd.concat([df_covid, df3])
+# print(df_covid['State'])
 df_covid = df_covid.sort_values('State', axis=0)
 df_covid = df_covid.reset_index(drop=True)
 
@@ -83,6 +84,10 @@ choropleth = flm.Choropleth(
     fill_color='Set2',
     fill_opacity=0.5,
     line_opacity=0.5,
+    nan_fill_color='white',
+    nan_fill_opacity=1, 
+    line_weight=0.8,
+    highlight=True,
     legend_name='State-wise COVID-19 Cases in INDIA',
     ).add_to(map1)
 
