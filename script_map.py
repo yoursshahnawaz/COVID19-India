@@ -21,7 +21,7 @@ res = requests.get('https://api.covid19india.org/data.json')
 covid_current = res.json()
 df = []
 
-# To skip few entries (index 0 and index 15)
+# To skip few entries (index 0 and index 9)
 concatenated_range = chain(range(1, 9), range(10, 35))
 
 # Filtering only required information
@@ -33,7 +33,7 @@ for j in concatenated_range:
                ])
     df_covid = pd.DataFrame(df, columns=['State', 'Total Case', 'Active Case', 'Deaths'])
 
-# More filtration to match index of both the files
+# Adding missing data
 df2 = pd.DataFrame({'State':['Mizoram'],
                   'Total Case':[1],
                   'Active Case':[1],
@@ -44,28 +44,24 @@ df3 = pd.DataFrame({'State':['Sikkim'],
                   'Deaths':[0]})
 df_covid = pd.concat([df_covid, df2])
 df_covid = pd.concat([df_covid, df3])
-# print(df_covid['State'])
+
+# More filtration to match index of both the files
 df_covid = df_covid.sort_values('State', axis=0)
 df_covid = df_covid.reset_index(drop=True)
 
-# Converting Needed data to CSV 
+# Converting required data to CSV 
 df_covid['State'].iloc[7] = 'Dadra and Nagar Haveli'
 df_covid.to_csv('Data/TotalCase.csv')
 
 # Reading CSV Data
 pop_df = pd.read_csv('Data/TotalCase.csv')
 
-# Adding total_cases to JSON file (Coordinates' file)
+# Adding total_cases, active_cases, and total_deaths to JSON file (Coordinates' file)
 for i in range(35):
     if((geojson_counties['features'][i]['properties']['NAME_1']) == (df_covid['State'][i])):
         geojson_counties['features'][i]['properties']['total_case'] = df_covid['Total Case'][i]
         geojson_counties['features'][i]['properties']['active_case'] = df_covid['Active Case'][i]
         geojson_counties['features'][i]['properties']['total_deaths'] = df_covid['Deaths'][i]
-
-# for i in range(33):
-#     if((geojson_counties['features'][i]['properties']['NAME_1']) == (df_covid['State'][i])):
-#         # geojson_counties['features'][i]['properties']['total_case'] = df_covid['Total Case'][i]
-#         print("Yes")
 
 # Choropleth map object
 map1 = flm.Map(location=[20.5937,78.9629], zoom_start=4)
