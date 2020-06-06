@@ -22,7 +22,7 @@ covid_current = res.json()
 df = []
 
 # To skip few entries (index 0 and index 9)
-concatenated_range = chain(range(1, 9), range(10, 35))
+concatenated_range = chain(range(1, 8), range(9, 37))
 
 # Filtering only required information
 for j in concatenated_range:
@@ -33,17 +33,17 @@ for j in concatenated_range:
                ])
     df_covid = pd.DataFrame(df, columns=['State', 'Total Case', 'Active Case', 'Deaths'])
 
-# Adding missing data
-df2 = pd.DataFrame({'State':['Mizoram'],
-                  'Total Case':[1],
-                  'Active Case':[1],
-                  'Deaths':[0]})
-df3 = pd.DataFrame({'State':['Sikkim'],
-                    'Total Case':[1],
-                    'Active Case':[1],
-                  'Deaths':[0]})
-df_covid = pd.concat([df_covid, df2])
-df_covid = pd.concat([df_covid, df3])
+# # Adding missing data
+# df2 = pd.DataFrame({'State':['Mizoram'],
+#                   'Total Case':[1],
+#                   'Active Case':[1],
+#                   'Deaths':[0]})
+# df3 = pd.DataFrame({'State':['Sikkim'],
+#                     'Total Case':[1],
+#                     'Active Case':[1],
+#                   'Deaths':[0]})
+# df_covid = pd.concat([df_covid, df2])
+# df_covid = pd.concat([df_covid, df3])
 
 # More filtration to match index of both the files
 df_covid = df_covid.sort_values('State', axis=0)
