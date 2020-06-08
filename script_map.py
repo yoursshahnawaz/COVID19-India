@@ -64,7 +64,7 @@ for i in range(35):
         geojson_counties['features'][i]['properties']['total_deaths'] = df_covid['Deaths'][i]
 
 # Choropleth map object
-map1 = flm.Map(location=[20.5937,78.9629], zoom_start=4)
+map1 = flm.Map(location=[20.5937,78.9629], zoom_start=4, tiles='Mapbox Bright')
 
 # Map Tiles (Different types of maps)
 tiles = ['stamenwatercolor', 'cartodbpositron', 'openstreetmap', 'stamenterrain']
@@ -85,6 +85,7 @@ choropleth = flm.Choropleth(
     line_weight=0.8,
     highlight=True,
     legend_name='State-wise COVID-19 Cases in INDIA',
+	reset=True
     ).add_to(map1)
 
 # Adding Hover Effect
